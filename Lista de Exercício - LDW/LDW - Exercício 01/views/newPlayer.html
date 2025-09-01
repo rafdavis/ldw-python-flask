@@ -1,0 +1,28 @@
+    {% extends 'base.html' %}
+
+    {% block content %}
+ 
+<h1>Cadastro de Jogador:</h1>
+    <hr />
+    <form action="{{url_for('newplayer')}}" method="POST">
+      <label>Nome:</label>
+      <input type="text" name="name"/>
+      <label>Time:</label>
+      <input type="text" name="team"/>
+      <label>Títulos:</label>
+      <input type="text" name="title" />
+      <br>
+      <br>
+      <input type="submit" value="Cadastrar" class="btn btn-success"/>
+    </form>
+    <br />
+    <hr />
+    <table>
+      <tr>
+        <th>Nome</th>
+        <th>Time</th>
+        <th>Títulos</th>
+      </tr>
+    </table>
+
+    {% endblock content %}

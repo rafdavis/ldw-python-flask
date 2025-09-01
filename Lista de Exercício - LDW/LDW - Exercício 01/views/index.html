@@ -1,0 +1,11 @@
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+    <h2>Esta é a HomePage!</h2>
+    <hr>
+
+    <a href="{{url_for('teams')}}"><p>Página de Times de Counter Strike 2</p></a>
+    <a href="{{url_for('newplayer')}}"><p>Cadastrar Jogadores</p></a>
+    <hr>
+    {% endblock content%}

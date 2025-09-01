@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Essa é a página de Times de CS</h1>
+<br>
+<h3>Times em destaque:</h3>
+<ol>
+  {% for team in teams %}
+  <li>{{team}}</li>
+  {% endfor %}
+</ol>
+
+<h3>Elenco dos Times em destaque:</h3>
+<ol>
+  <h4>Vitality</h4>
+  {% for player in players %}
+  <li>{{player}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+<ol>
+  <h4>Spirit</h4>
+  {% for player2 in players2 %}
+  <li>{{player2}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+<ol>
+  <h4>The MongolZ</h4>
+  {% for player3 in players3 %}
+  <li>{{player3}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+<ol>
+  <h4>MOUZ</h4>
+  {% for player4 in players4 %}
+  <li>{{player4}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+<ol>
+  <h4>Aurora</h4>
+  {% for player5 in players5 %}
+  <li>{{player5}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+{% endblock content %} 
