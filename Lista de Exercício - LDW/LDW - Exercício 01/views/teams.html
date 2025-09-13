@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Essa é a página de Times de CS</h1>
+<h1>Essa é a página de Times da NBA</h1>
 <br>
 <h3>Times em destaque:</h3>
 <ol>
@@ -10,41 +10,41 @@
 
 <h3>Elenco dos Times em destaque:</h3>
 <ol>
-  <h4>Vitality</h4>
-  {% for player in players %}
+  <h4>Warriors</h4>
+  {% for player in warriors %}
   <li>{{player}}</li>
   {% endfor %}
 </ol>
 <hr />
 
 <ol>
-  <h4>Spirit</h4>
-  {% for player2 in players2 %}
-  <li>{{player2}}</li>
+  <h4>Lakers</h4>
+  {% for player in lakers %}
+  <li>{{player}}</li>
   {% endfor %}
 </ol>
 <hr />
 
 <ol>
-  <h4>The MongolZ</h4>
-  {% for player3 in players3 %}
-  <li>{{player3}}</li>
+  <h4>Celtics</h4>
+  {% for player in celtics %}
+  <li>{{player}}</li>
   {% endfor %}
 </ol>
 <hr />
 
 <ol>
-  <h4>MOUZ</h4>
-  {% for player4 in players4 %}
-  <li>{{player4}}</li>
+  <h4>Spurs</h4>
+  {% for player in spurs %}
+  <li>{{player}}</li>
   {% endfor %}
 </ol>
 <hr />
 
 <ol>
-  <h4>Aurora</h4>
-  {% for player5 in players5 %}
-  <li>{{player5}}</li>
+  <h4>Bulls</h4>
+  {% for player in bulls %}
+  <li>{{player}}</li>
   {% endfor %}
 </ol>
 <hr />

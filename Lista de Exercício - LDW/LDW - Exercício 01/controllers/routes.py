@@ -2,12 +2,12 @@ from flask import render_template, request, redirect, url_for
 
 
 def init_app(app):
-    players = ['apEX', 'ropz', 'Zywoo', 'flameZ', 'mezii']
-    players2 = ['chopper', 'sh1ro', 'zont1x', 'donk', 'zweih']
-    players3 = ['bLitz', 'Techno', 'Senzu', 'mzinho', '910']
-    players4 = ['Brollan', 'torzsi', 'Spinx', 'Jimpphat', 'xertioN']
-    players5 = ['MAJ3R', 'XANTARES', 'woxic', 'Wicadia', 'jottAAA']
-    
+    warriors = ['Stephen Curry', 'Brandin Podziemski', 'Jimmy Butler III', 'Draymond Green', 'Quinten Post']
+    lakers = ['Luka Dončić', 'Austin Reaves', 'Rui Hachimura', 'Lebron James', 'Deandre Ayton']
+    celtics = ['Payton Pritchard','Anfernee Simons', 'Derrick White', 'Jaylen Brown', 'Al Horford']
+    spurs = ["De'Aaron Fox", 'Stephon Castle', 'Devin Vassell', 'Harrison Barnes', 'Victor Wembanyama']
+    bulls = ['Josh Giddey', 'Coby White', 'Kevin Huerter', 'Patrick Williams', 'Nikola Vučević']
+    teamlist = [{'Nome': 'Warriors', 'Divisão': 'Oeste', 'Títulos': 6}]
 
     @app.route('/')
     def home(): 
@@ -15,20 +15,20 @@ def init_app(app):
 
     @app.route('/teams', methods=['GET', 'POST'])
     def teams():
-        teams = ['Vitality', 'Spirit', 'The MongolZ', 'MOUZ', 'Aurora']
-
+        teams = ['Golden State Warriors', 'Los Angeles Lakers', 'Boston Celtics', 'San Antonio Spurs', 'Chicago Bulls']
 
         if request.method == 'POST':
             if request.form.get('player'):
-                players.append(request.form.get('player'))
+                warriors.append(request.form.get('player'))
                 return redirect(url_for('teams'))
 
-        return render_template('teams.html', players=players, players2= players2, players3=players3, players4=players4, players5=players5, teams=teams)
+        return render_template('teams.html', warriors=warriors, lakers=lakers, celtics=celtics, spurs=spurs, bulls=bulls, teams=teams)
 
-    @app.route('/newplayer', methods=['GET', 'POST'])
-    def newplayer():
+    @app.route('/newTeam', methods=['GET', 'POST'])
+    def newteam():
 
         if request.method == 'POST':
-            if request.form.get('name') and request.form.get('team') and request.form.get('title'):
-                return redirect(url_for('newplayer'))
-        return render_template('newPlayer.html')
+            if request.form.get('name') and request.form.get('division') and request.form.get('title'):
+                teamlist.append({'Nome': request.form.get('name'), 'Divisão': request.form.get('division'), 'Títulos': request.form.get('title')})
+                return redirect(url_for('newteam'))
+        return render_template('newTeam.html', teamlist=teamlist)
