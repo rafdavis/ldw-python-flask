@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Essa é a página de Times da NBA</h1>
+<br>
+<h3>Times em destaque:</h3>
+<ol>
+  {% for team in teams %}
+  <li>{{team}}</li>
+  {% endfor %}
+</ol>
+
+<h3>Elenco dos Times em destaque:</h3>
+<ol>
+  <h4>Warriors</h4>
+  {% for player in warriors %}
+  <li>{{player}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+<ol>
+  <h4>Lakers</h4>
+  {% for player in lakers %}
+  <li>{{player}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+<ol>
+  <h4>Celtics</h4>
+  {% for player in celtics %}
+  <li>{{player}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+<ol>
+  <h4>Spurs</h4>
+  {% for player in spurs %}
+  <li>{{player}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+<ol>
+  <h4>Bulls</h4>
+  {% for player in bulls %}
+  <li>{{player}}</li>
+  {% endfor %}
+</ol>
+<hr />
+
+{% endblock content %} 
