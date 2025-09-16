@@ -89,10 +89,16 @@ def init_app(app):
             # .session.commit confirma as alterações do banco
             db.session.commit()
             return redirect(url_for('estoque'))
+        else:
+            # Páginação de Registros
+            # Captura o valor de 'page' que foi passado pelo método GET
+            page = request.args.get('page', 1, type=int)
+
+            per_page = 3
 
         # query.all é o método do SQL Alchemy para selecionar todos os registros
-        gamesEstoque = Game.query.all()
-        return render_template('estoque.html', gamesEstoque=gamesEstoque)
+        games_page = Game.query.paginate(page=page, per_page=per_page)
+        return render_template('estoque.html', gamesEstoque=games_page)
     @app.route('/edit/<int:id>', methods=['GET', 'POST'])
     def edit(id):
         game = Game.query.get(id)
