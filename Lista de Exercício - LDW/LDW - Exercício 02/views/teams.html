@@ -1,4 +1,6 @@
 {% extends 'base.html' %} {% block content %}
+
+<div class="container my-5">
 <h1>Essa é a página de Times da NBA</h1>
 <br>
 <h3>Times em destaque:</h3>
@@ -7,6 +9,7 @@
   <li>{{team}}</li>
   {% endfor %}
 </ol>
+<hr>
 
 <h3>Elenco dos Times em destaque:</h3>
 <ol>
@@ -48,5 +51,6 @@
   {% endfor %}
 </ol>
 <hr />
+</div>
 
 {% endblock content %} 

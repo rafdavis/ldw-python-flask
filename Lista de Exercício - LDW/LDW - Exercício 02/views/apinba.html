@@ -2,23 +2,26 @@
 
 {% block content %}
 
-<div class="container" style="background-color: #f0f0f0; border-radius: 8px">
-  <div class="row">
+<div class="container my-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for team in teamList %}
-    <div class="col-md-3 m-auto">
-      <div class="card" style="width: 16rem">
-        <img src="{{team.strFanart1}}" alt="Imagem do Time" />
-        <div class="card-body">
-          <h5>{{team.strTeam}}</h5>
-          <p>{{team.intFormedYear}}</p>
-          <p>{{team.strLocation}}</p>
-          <a href="{{url_for('apinba', id=team.idTeam   )}}" class="btn btn-dark"
-            >+Info</a
-          >
+    <div class="col d-flex justify-content-center">
+      <div class="card h-100 shadow-sm" style="width: 16rem; border-radius: 10px; background-color: #dbdbdb;">
+        <img src="{{ team.strBadge or url_for('static', filename='no-image.png') }}" 
+             class="card-img-top p-3 mx-auto d-block" 
+             style="width: 120px; height: 120px; object-fit: contain;" 
+             alt="Imagem do Time">
+        <div class="card-body text-center">
+          <h5 class="card-title">Time: {{ team.strTeam }}</h5>
+          <p class="card-text mb-1"><strong>Ano de Formação:</strong> {{ team.intFormedYear }}</p>
+          <p class="card-text mb-1"><strong>Localização:</strong> {{ team.strLocation }}</p>
+          <p class="card-text mb-3"><strong>Estádio:</strong> {{ team.strStadium }}</p>
+          <a href="{{ url_for('apinba', idTeam=team.idTeam) }}" class="btn btn-dark">+Info</a>
         </div>
       </div>
     </div>
     {% endfor %}
   </div>
 </div>
+
 {% endblock content %}

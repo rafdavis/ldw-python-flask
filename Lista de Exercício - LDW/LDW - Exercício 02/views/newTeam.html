@@ -1,36 +1,47 @@
-    {% extends 'base.html' %}
+{% extends 'base.html' %}
 
-    {% block content %}
- 
-<h1>Cadastro de Time:</h1>
-    <hr />
-    <form action="{{url_for('newteam')}}" method="POST">
-      <label>Nome:</label>
-      <input type="text" name="name"/>
-      <label>Divisão:</label>
-      <input type="text" name="division"/>
-      <label>Títulos:</label>
-      <input type="text" name="title" />
-      <br>
-      <br>
-      <input type="submit" value="Cadastrar" class="btn btn-success"/>
-    </form>
-    <br />
-    <hr />
-    <table class="table table-bordered table-hover">
-      <thead class="table-dark">
+{% block content %}
+
+<div class="container my-5"> 
+  <h1>Cadastro de Time:</h1>
+  <hr />
+
+  <form action="{{url_for('newteam')}}" method="POST" class="mb-4">
+    <div class="mb-3">
+      <label class="form-label">Nome:</label>
+      <input type="text" name="name" class="form-control"/>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Divisão:</label>
+      <input type="text" name="division" class="form-control"/>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Títulos:</label>
+      <input type="text" name="title" class="form-control"/>
+    </div>
+    <button type="submit" class="btn btn-success">Cadastrar</button>
+  </form>
+
+  <hr />
+
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
       <tr>
         <th>Nome</th>
         <th>Divisão</th>
         <th>Títulos</th>
       </tr>
+    </thead>
+    <tbody>
       {% for team in teamlist %}
       <tr>
-        <td>{{team.Nome}}</td>
-        <td>{{team.Divisão}}</td>
-        <td>{{team.Títulos}}</td>
+        <td>{{ team.Nome }}</td>
+        <td>{{ team.Divisão }}</td>
+        <td>{{ team.Títulos }}</td>
       </tr>
       {% endfor %}
-    </thead>
-    </table>
-    {% endblock content %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock content %}

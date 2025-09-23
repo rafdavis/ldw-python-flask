@@ -1,16 +1,33 @@
-{% extends 'base.html' %} 
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 
 <div class="container" style="background-color: #f0f0f0; border-radius: 8px">
   <div class="row">
-    <div class="col-md-6 m-auto">
-      <div class="card">
+    <div class="col-md-4 m-auto">
+      <div class="card shadow-lg" style="width: 20rem">
         <img src="{{teaminfo.strBadge}}" alt="Imagem do Time" />
-        <div class="card-body m-auto">
-          <h3>Nome: {{teaminfo.strTeam}}</h3>
-          <p>Ano de Fundação: {{teaminfo.intFormedYear}}</p>
-          <p>Localidade: {{teaminfo.strLocation}}</p>
+        <div class="card-body m-auto text-center">
+          <h4>{{teaminfo.strTeam}}</h4>
+          <ul class="list-group list-group-flush text start">
+            <li class="list-group-item border-0">
+              <strong>Ano de Fundação:</strong> {{teaminfo.intFormedYear}}
+            </li>
+            <li class="list-group-item border-0">
+              <strong>Estádio:</strong> {{teaminfo.strStadium}}
+            </li>
+            <li class="list-group-item border-0">
+              <strong>Localização:</strong> {{teaminfo.strLocation}}
+            </li>
+          </ul>
+          <div class="d-flex flex-column align-items-center gap-2 mt-3">
+            <a
+              href="https://{{ teaminfo.strWebsite }}"
+              class="btn btn-danger w-100"
+              >Confira mais do Time</a
+            >
+            <a href="{{url_for('apinba')}}" class="btn btn-dark w-100"
+              >Voltar para todos os Times</a
+            >
+          </div>
         </div>
       </div>
     </div>

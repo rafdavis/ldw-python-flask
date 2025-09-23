@@ -1,56 +1,64 @@
-    {% extends 'base.html' %}
+{% extends 'base.html' %}
 
-    {% block content %}
+{% block content %}
 
-    <section class="text-center p-5 hero">
-      <h2>Bem-vindo ao mundo da NBA</h2>
-      <p>Acompanhe os times, jogadores e as últimas novidades da liga.</p>
-      <a href="{{ url_for('teams') }}" class="btn btn-nba-primary">Ver Times</a>
-    </section>
+<section class="text-center p-5 hero">
+  <h2>Bem-vindo ao mundo da NBA</h2>
+  <p>Acompanhe os times, jogadores e as últimas novidades da liga.</p>
+  <a href="{{ url_for('teams') }}" class="btn btn-dark">Ver Times</a>
+</section>
 
-     <section class="container my-5">
-      <h3 class="text-center mb-4">Times em destaque</h3>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-          <div class="card text-center">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Los_Angeles_Lakers_logo.svg"
-              class="card-img-top p-3"
-              alt="Lakers"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Los Angeles Lakers</h5>
-              <p class="card-text">17x campeões da NBA.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card text-center">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/en/6/67/Chicago_Bulls_logo.svg"
-              class="card-img-top p-3"
-              alt="Bulls"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Chicago Bulls</h5>
-              <p class="card-text">O time de Michael Jordan.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card text-center">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/en/0/01/Golden_State_Warriors_logo.svg"
-              class="card-img-top p-3"
-              alt="Warriors"
-            />
-            <div class="card-body">
-              <h5 class="card-title">Golden State Warriors</h5>
-              <p class="card-text">Revolucionaram o jogo com as bolas de 3.</p>
-            </div>
-          </div>
+<section class="container my-5">
+  <h3 class="text-center mb-4">Times em destaque</h3>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card text-center">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Los_Angeles_Lakers_logo.svg"
+          class="card-img-top p-3 mx-auto d-block"
+          alt="Lakers"
+          style="width: 120px; height: 120px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Los Angeles Lakers</h5>
+          <p class="card-text">17x campeões da NBA.</p>
+          <a href="{{ url_for('apinba', idTeam='134867') }}" class="btn btn-dark">Ver Time</a>
         </div>
       </div>
-    </section>
+    </div>
 
-    {% endblock content%}
+    <div class="col">
+      <div class="card text-center">
+        <img
+          src="https://cdn.nba.com/teams/uploads/sites/1610612741/2021/10/bulls-svg.svg"
+          class="card-img-top p-3 mx-auto d-block"
+          alt="Bulls"
+          style="width: 120px; height: 120px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Chicago Bulls</h5>
+          <p class="card-text">O time de Michael Jordan.</p>
+          <a href="{{ url_for('apinba', idTeam='134870') }}" class="btn btn-dark">Ver Time</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card text-center">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/0/01/Golden_State_Warriors_logo.svg"
+          class="card-img-top p-3 mx-auto d-block"
+          alt="Warriors"
+          style="width: 120px; height: 120px"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Golden State Warriors</h5>
+          <p class="card-text">Revolucionaram o jogo com as bolas de 3.</p>
+          <a href="{{ url_for('apinba', idTeam='134865') }}" class="btn btn-dark">Ver Time</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}

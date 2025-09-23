@@ -42,15 +42,17 @@ def init_app(app):
         return render_template('newTeam.html', teamlist=teamlist)
 
     @app.route('/apinba', methods=['GET', 'POST'])
-    @app.route('/apinba/<int:idTeam>', methods=['GET', 'POST'])
+    @app.route('/apinba/<idTeam>', methods=['GET', 'POST'])
     def apinba(idTeam=None):
         url = 'https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=NBA'
         response = urllib.request.urlopen(url)
         data = response.read()
         teamList = json.loads(data)
+        teams = teamList["teams"]
+
         if idTeam:
-            teaminfo = []
-            for team in teamList:
+            teaminfo = None
+            for team in teamList["teams"]:
                 if team['idTeam'] == idTeam:
                     teaminfo = team
                     break
@@ -59,4 +61,4 @@ def init_app(app):
             else:
                 return f'Time com a ID {idTeam} não foi encontrado'
         else:
-            return render_template('apinba.html', teamList=teamList)
+            return render_template('apinba.html', teamList=teams)
