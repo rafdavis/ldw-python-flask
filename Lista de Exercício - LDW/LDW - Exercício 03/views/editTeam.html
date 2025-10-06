@@ -1,0 +1,42 @@
+{% extends 'base.html '%}
+
+{% block content %}
+
+<div class="col-md-6 m-auto">
+    <h3 style="text-align: center;">Editar Time</h3>
+    <form action="{{url_for('edit', id=team.id)}}" method="POST">
+        <input
+          type="text"
+          name="time"
+          placeholder="Time"
+          class="form-control"
+          value="{{team.time}}"
+          required
+        />
+        <br>
+        <input
+          type="text"
+          name="divisao"
+          placeholder="Divisão"
+          class="form-control"
+          value="{{team.divisao}}"
+          required
+        />
+        <br>
+        <input
+          type="number"
+          name="titulos"
+          placeholder="Títulos"
+          class="form-control"
+          value="{{team.titulos}}"
+          required
+        />
+        <br>
+        <input type="text" name="estadio" placeholder="Estádio" class="form-control" value="{{team.estadio}}" required>
+        <br>
+        <a href="{{url_for('edit', id=team.id)}}" onclick="return confirm('Confirma as alterações feitas ?')"><input type="submit" value="Alterar" class="btn btn-warning"></a>
+        <a href="{{url_for('newteam')}}"><input type="button" value="Cancelar" class="btn btn-danger"></a>
+    </form>
+</div>
+
+{% endblock content %}
